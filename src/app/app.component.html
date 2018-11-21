@@ -1,0 +1,62 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="header">
+  <h1>Amtica Team Selection Club</h1>
+</div>
+
+<div class="team">
+  <div class="team-container" id="players">
+    <h2>Player List</h2>
+    
+    <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="playerList"
+    [cdkDropListConnectedTo]="[doneList, todoList]"
+    class="team-list"
+    (cdkDropListDropped)="drop($event)">
+      <div class="team-box" *ngFor="let item of playerList" cdkDrag>
+          {{item}}
+          <i class="fa fa-2x fa-user" aria-hidden="true"></i>
+      </div>
+    </div>
+    
+  
+  </div>
+  
+  <div class="team-container">
+    <h2>Team 1</h2>
+  
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="teamA"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="teamA-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="team-box" *ngFor="let item of teamA" cdkDrag>
+        {{item}}
+        <i class="fa fa-2x fa-user" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+  
+  <div class="team-container" >
+    <h2>Team 2</h2>
+  
+    <div
+      cdkDropList
+      #doneList="cdkDropList"
+      [cdkDropListData]="teamB"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="teamB-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="team-box" *ngFor="let item of teamB" cdkDrag>
+        {{item}}
+        <i class="fa fa-2x fa-user" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+
